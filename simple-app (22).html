@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Team Plans - Employee Assistance Programme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'teal': '#00BCD4',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(180deg, 
+                #000000 0%,    /* Pure black */
+                #020617 10%,   /* Very dark navy */
+                #0f172a 20%,   /* Dark slate */
+                #1e293b 30%,   /* Darker slate */
+                #334155 45%,   /* Medium slate */
+                #475569 60%,   /* Lighter slate */
+                #64748b 75%,   /* Light slate */
+                #94a3b8 90%,   /* Very light slate */
+                #64748b 100%   /* Stop at light slate - readable */
+            );
+            background-size: 100% 600vh;
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(0, 188, 212, 0.4);
+        }
+        .section-transition {
+            height: 150px;
+            position: relative;
+        }
+        .demo-transition {
+            height: 100px;
+            position: relative;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(51, 65, 85, 0.2) 100%
+            );
+        }
+        .footer-separator {
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 188, 212, 0.8) 50%, 
+                transparent 100%
+            );
+            margin: 0;
+        }
+        .smooth-section {
+            position: relative;
+            z-index: 1;
+        }
+        .bg-overlay {
+            background: rgba(51, 65, 85, 0.4);
+            backdrop-filter: blur(6px);
+        }
+        .footer-bg {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(6px);
+            border-top: 1px solid rgba(0, 188, 212, 0.6);
+        }
+        
+        /* Mobile and Tablet Optimizations */
+        @media (max-width: 768px) {
+            .gradient-bg {
+                background-size: 100% 500vh; /* Adjust for shorter mobile content */
+            }
+            .glass-card {
+                backdrop-filter: blur(8px); /* Reduce blur on mobile for better performance */
+            }
+            .section-transition {
+                height: 80px; /* Smaller transitions on mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gradient-bg {
+                background-size: 100% 400vh; /* Even shorter for small phones */
+            }
+            .glass-card {
+                backdrop-filter: blur(6px);
+                padding: 1rem; /* Smaller padding on small screens */
+            }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen text-white">
+    <!-- Hero Section -->
+    <section class="py-32 px-4 text-center min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6">
+                Global Employee Assistance Programme
+                <span class="text-teal block mt-2">Supporting 35+ Million Lives Worldwide</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Comprehensive wellbeing support across 180+ countries in 50+ languages. 
+                Professional counseling, mental health resources, and crisis support available 24/7.
+            </p>
+            
+            <!-- Statistics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12">
+                <div class="glass-card p-4 md:p-6 rounded-lg">
+                    <div class="text-xl md:text-3xl font-bold text-teal">180+</div>
+                    <div class="text-gray-300 text-sm md:text-base">Countries Covered</div>
+                </div>
+                <div class="glass-card p-4 md:p-6 rounded-lg">
+                    <div class="text-xl md:text-3xl font-bold text-teal">35M+</div>
+                    <div class="text-gray-300 text-sm md:text-base">Lives Supported</div>
+                </div>
+                <div class="glass-card p-4 md:p-6 rounded-lg">
+                    <div class="text-xl md:text-3xl font-bold text-teal">50+</div>
+                    <div class="text-gray-300 text-sm md:text-base">Languages</div>
+                </div>
+                <div class="glass-card p-4 md:p-6 rounded-lg">
+                    <div class="text-xl md:text-3xl font-bold text-teal">24/7</div>
+                    <div class="text-gray-300 text-sm md:text-base">Support Available</div>
+                </div>
+            </div>
+            
+            <button onclick="scrollToDemo()" class="bg-teal hover:bg-teal/80 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold glow-effect transition-all">
+                Get Free Demo
+            </button>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition"></div>
+    
+    <!-- Services Section -->
+    <section class="py-32 px-4 smooth-section">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-4">
+                Comprehensive <span class="text-teal">Wellbeing Solutions</span>
+            </h2>
+            <p class="text-center text-gray-300 mb-8 md:mb-12 text-sm md:text-base">
+                24/7/365 support across mental health, social, physical and financial pillars with world-class clinical governance.
+            </p>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+                <!-- Row 1 -->
+                <div class="glass-card p-6 md:p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">24/7 Crisis Support</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Immediate access to qualified counsellors via phone and video in multiple languages for critical incidents and emergencies.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Crisis & critical incident support</li>
+                        <li>• Workplace violence response</li>
+                        <li>• Disaster management</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Structured Counselling</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Flexible counselling modalities including in-person, virtual, and telephone services for comprehensive mental health support.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• 1:1, 1:4, or 1:10 counselling services</li>
+                        <li>• Anxiety, depression, stress management</li>
+                        <li>• Addiction and anger management</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Digital Wellbeing Platform</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Consumer-grade app experience with self-guided CBT programmes, digital content library, and Total Wellbeing Solver.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Complete digital CBT programmes</li>
+                        <li>• Resource library & modules</li>
+                        <li>• Multimedia risk assessments</li>
+                    </ul>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="glass-card p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">WorkLife Solutions</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Comprehensive support covering legal, financial, health coaching, and family care services.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Legal & financial guidance</li>
+                        <li>• Child & elder care support</li>
+                        <li>• Nutritional counselling</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                <path d="M6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">OurHealth Community</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Private, anonymous peer-to-peer forum in 30 languages with professional moderation and global period.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Anonymous peer support</li>
+                        <li>• Professional moderation</li>
+                        <li>• Global reach & advocacy</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl border border-slate-600/50">
+                    <div class="mb-6">
+                        <div class="w-12 h-12 bg-teal/20 border border-teal rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Analytics Dashboard</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">Real-time insights and reporting for HR teams with utilisation tracking and ROI measurement.</p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li>• Utilisation & participation metrics</li>
+                        <li>• Employee insight tracking</li>
+                        <li>• Demographic trend analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="scrollToDemo()" class="bg-teal hover:bg-teal/80 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold glow-effect transition-all">
+                    Get Free Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition"></div>
+    
+    <!-- Results Section -->
+    <section class="py-32 px-4 smooth-section relative">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl md:text-4xl font-bold mb-4">
+                Proven <span class="text-teal">Results & Measurable Impact</span>
+            </h2>
+            <p class="text-gray-300 mb-8 md:mb-12 text-sm md:text-base">
+                Evidence-based wellbeing solutions that deliver tangible business outcomes and ROI.
+            </p>
+            
+            <!-- Impact Statistics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+                <div class="glass-card p-6 md:p-8 rounded-lg">
+                    <div class="text-3xl md:text-5xl font-bold text-teal mb-4">50%</div>
+                    <div class="text-lg md:text-xl font-semibold mb-2">Reduction in poor mental health ratings</div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-lg">
+                    <div class="text-5xl font-bold text-teal mb-4">38%</div>
+                    <div class="text-xl font-semibold mb-2">Drop in presenteeism hours</div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-lg">
+                    <div class="text-5xl font-bold text-teal mb-4">42%</div>
+                    <div class="text-xl font-semibold mb-2">Increase in good mental health ratings</div>
+                </div>
+            </div>
+
+            <!-- Key Benefits Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Left Column -->
+                <div class="space-y-6">
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Global Reach, Local Expertise</h3>
+                            <p class="text-gray-300 text-sm">Worldwide access to qualified counsellors in multiple languages before engagement across 180+ markets and five billion people workforce.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/>
+                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Data-Driven Insights</h3>
+                            <p class="text-gray-300 text-sm">Our dashboard equips HR teams with real-time insights, enabling targeted interventions and measuring program effectiveness.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 2C5.589 2 2 5.589 2 10s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Clinical Governance</h3>
+                            <p class="text-gray-300 text-sm">Accreditation and global governance ensure consistent quality for multinational employers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="space-y-6">
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Enhanced Employee Experience</h3>
+                            <p class="text-gray-300 text-sm">Flexible counselling modalities and peer community enhance work wellbeing and best reward outcomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Crisis Response</h3>
+                            <p class="text-gray-300 text-sm">24/7 crisis-response capability protects employee safety and mitigates operational disruption.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start text-left">
+                        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">GDPR Compliant</h3>
+                            <p class="text-gray-300 text-sm">All service delivery operated under strict confidentiality with full GDPR compliance and data protection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Section -->
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold text-teal mb-4">Trusted by Organizations Worldwide</h3>
+                <p class="text-gray-300 mb-8">
+                    Accredited by the Council on Accreditation with strict clinical governance standards.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-lg">
+                        <div class="w-8 h-8 bg-teal/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold mb-2">Council on Accreditation</h4>
+                        <p class="text-gray-400 text-sm">Rigorous clinical governance and quality standards</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-lg">
+                        <div class="w-8 h-8 bg-teal/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold mb-2">ISO Certification</h4>
+                        <p class="text-gray-400 text-sm">Dedicated account teams and 36-month contracts</p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-lg">
+                        <div class="w-8 h-8 bg-teal/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold mb-2">Security & Privacy</h4>
+                        <p class="text-gray-400 text-sm">Serving brokers and consulting globally</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Transition -->
+    <div class="section-transition"></div>
+    
+    <!-- Pricing Section -->
+    <section class="py-32 px-4 smooth-section">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-4xl font-bold text-center mb-4">
+                Flexible <span class="text-teal">Pricing Plans</span>
+            </h2>
+            <p class="text-center text-gray-300 mb-8 md:mb-12 text-sm md:text-base">
+                Choose the right level of support for your organization. All plans include our core EAP services with transparent, per-employee pricing.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">Global Level 1</h3>
+                    <div class="text-sm text-gray-400 mb-2">Core EAP Services</div>
+                    <div class="text-4xl font-bold text-teal mb-2">£10</div>
+                    <div class="text-sm text-gray-400 mb-6">per employee per year<br/>Monthly equivalent £0.83</div>
+                    
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> 5 structured counselling sessions</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> 24/7/365 helpline support</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Digital wellbeing tools</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Access to new platform services</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Basic reporting dashboard</li>
+                    </ul>
+                    <button onclick="selectPlan('Global Level 1')" class="w-full bg-slate-700 hover:bg-slate-600 text-white py-3 rounded-lg transition-all">
+                        Get Started with Level 1
+                    </button>
+                </div>
+                
+                <div class="glass-card p-8 rounded-lg border-teal glow-effect">
+                    <div class="bg-teal text-white px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Most Popular</div>
+                    <h3 class="text-2xl font-bold mb-4">Global Level 2</h3>
+                    <div class="text-sm text-gray-400 mb-2">Enhanced EAP Services</div>
+                    <div class="text-4xl font-bold text-teal mb-2">£17</div>
+                    <div class="text-sm text-gray-400 mb-6">per employee per year<br/>Monthly equivalent £1.42</div>
+                    
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> 5 structured counselling sessions</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Full digital wellbeing suite</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Advanced analytics & insights</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> In-country local access</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> OurHealth Community access</li>
+                        <li class="flex items-center"><span class="text-teal mr-2">✓</span> Dedicated account management</li>
+                    </ul>
+                    <button onclick="selectPlan('Global Level 2')" class="w-full bg-teal hover:bg-teal/80 text-white py-3 rounded-lg transition-all glow-effect">
+                        Choose Level 2 Plan
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-sm text-gray-400">
+                    * Rates exclusive of VAT. Organisations above 3,000 employees receive tailored pricing with special terms.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Transition -->
+    <div class="demo-transition"></div>
+    
+    <!-- Demo Form Section -->
+    <section id="demo-form" class="py-32 px-4 bg-overlay smooth-section relative">
+        <div class="max-w-2xl mx-auto">
+            <div class="glass-card rounded-2xl p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-xl md:text-3xl font-bold mb-4">
+                        Ready to Transform Your <span class="text-teal">Workplace Wellbeing</span>?
+                    </h2>
+                    <p class="text-gray-300 text-sm md:text-base">
+                        Join over 35 million people who trust our global EAP services. Get started with a personalized demo.
+                    </p>
+                </div>
+
+                <form id="demoForm" onsubmit="submitForm(event)" class="space-y-6">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Get Your Free Demo</h3>
+                        <div id="selectedPlan" class="text-teal font-semibold"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" name="firstName" placeholder="First Name" required 
+                               class="bg-slate-700/50 border border-slate-600 text-white placeholder-gray-400 px-4 py-3 rounded-lg focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50">
+                        <input type="text" name="lastName" placeholder="Last Name" required
+                               class="bg-slate-700/50 border border-slate-600 text-white placeholder-gray-400 px-4 py-3 rounded-lg focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50">
+                    </div>
+
+                    <input type="email" name="workEmail" placeholder="Work Email" required
+                           class="w-full bg-slate-700/50 border border-slate-600 text-white placeholder-gray-400 px-4 py-3 rounded-lg focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50">
+
+                    <input type="text" name="companyName" placeholder="Company Name" required
+                           class="w-full bg-slate-700/50 border border-slate-600 text-white placeholder-gray-400 px-4 py-3 rounded-lg focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50">
+
+                    <textarea name="message" placeholder="Tell us about your needs (optional)" rows="4"
+                              class="w-full bg-slate-700/50 border border-slate-600 text-white placeholder-gray-400 px-4 py-3 rounded-lg focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50"></textarea>
+
+                    <button type="submit" class="w-full bg-teal hover:bg-teal/80 text-white py-4 rounded-lg text-lg font-semibold glow-effect transition-all">
+                        Request Demo
+                    </button>
+                </form>
+
+                <div class="text-center mt-6 pt-6 border-t border-slate-600">
+                    <p class="text-gray-400 mb-4">Prefer to speak directly?</p>
+                    <button onclick="emailDirect()" class="text-teal hover:text-teal/80 font-semibold">
+                        📧 Email us directly at demo@globalteamplans.com
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-4 footer-bg smooth-section">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="text-2xl font-bold text-teal mb-4">Global Team Plans</div>
+            <p class="text-gray-400 mb-6">
+                Transforming workplace wellbeing across 180+ countries worldwide
+            </p>
+            <div class="text-sm text-gray-300">
+                © 2025 Global Team Plans. All rights reserved. | 
+                <a href="mailto:info@globalteamplans.com" class="text-teal hover:text-teal/80">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let selectedPlan = '';
+
+        function selectPlan(plan) {
+            selectedPlan = plan;
+            document.getElementById('selectedPlan').textContent = `Selected: ${plan} Plan`;
+            scrollToDemo();
+        }
+
+        function scrollToDemo() {
+            document.getElementById('demo-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Create mailto link
+            const subject = `EAP Demo Request - ${data.companyName}`;
+            const body = `Hello,
+
+I would like to request a demo of your Employee Assistance Programme services.
+
+Contact Details:
+- Name: ${data.firstName} ${data.lastName}
+- Email: ${data.workEmail}
+- Company: ${data.companyName}
+${selectedPlan ? `- Selected Plan: ${selectedPlan} Plan` : ''}
+
+${data.message ? `Message: ${data.message}` : ''}
+
+Please contact me to schedule a personalized demo.
+
+Best regards,
+${data.firstName} ${data.lastName}`;
+
+            const mailtoUrl = `mailto:demo@globalteamplans.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoUrl;
+            
+            // Show success message
+            alert('Email client opened! Send the email to complete your demo request.');
+            
+            // Reset form
+            event.target.reset();
+            document.getElementById('selectedPlan').textContent = '';
+            selectedPlan = '';
+        }
+
+        function emailDirect() {
+            window.location.href = "mailto:demo@globalteamplans.com?subject=EAP Demo Request";
+        }
+    </script>
+</body>
+</html>
